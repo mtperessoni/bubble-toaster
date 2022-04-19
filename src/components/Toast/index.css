@@ -79,13 +79,13 @@ code {
   animation: toast-right 0.6s;
 }
 
-.toast.toast__bottom_left {
+.toast.toast__top_left {
   left: 12px;
   bottom: 12px;
   animation: toast-left 0.6s;
 }
 
-.toast.toast__bottom_right {
+.toast.toast__bottom_left {
   right: 12px;
   bottom: 12px;
   animation: toast-left 0.6s;

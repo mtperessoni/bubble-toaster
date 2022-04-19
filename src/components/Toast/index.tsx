@@ -9,7 +9,6 @@ interface IToast {
   color?: string
   direction?: 'bottom-right' | 'bottom-left' | 'top-left' | 'top-right'
   type?: 'sucess' | 'warning' | 'error' | 'info'
-  isVisible?: boolean
   duration?: number
   message: string
 }
@@ -53,12 +52,14 @@ const App: React.FC<IToast> = ({ type, duration, direction, message }) => {
   const [show, setShow] = useState<boolean>(false)
 
   useEffect(() => {
-    setShow(true)
-    const timeout: NodeJS.Timeout = setTimeout(() => {
-      setShow(false)
-    }, duration || 6000)
+    if (message) {
+      setShow(true)
+      const timeout: NodeJS.Timeout = setTimeout(() => {
+        setShow(false)
+      }, duration || 6000)
 
-    return () => clearTimeout(timeout)
+      return () => clearTimeout(timeout)
+    }
   }, [message])
 
   if (!show) return null
