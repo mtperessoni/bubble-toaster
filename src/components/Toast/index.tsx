@@ -23,7 +23,10 @@ const TOAST_INFO: { [key: string]: { img: any; className: string; text: string }
     text: 'Sucesso',
   },
   error: {
-    img: errorIcon,
+    img:
+      process.env.NODE_ENV === 'development'
+        ? errorIcon
+        : 'https://besafe-scripts.s3.amazonaws.com/Toast/media/error.f4c49f9a5c8aba2ee43a19348f4e68b3.svg',
     className: 'toast__error',
     text: 'Erro',
   },
@@ -57,7 +60,7 @@ const App: React.FC<IToast> = ({ type, duration, direction, message, color }) =>
 
       return () => clearTimeout(timeout)
     }
-  }, [message])
+  }, [message, duration, color])
 
   if (!show) return null
 
