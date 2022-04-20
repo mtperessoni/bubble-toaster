@@ -22,6 +22,6 @@
     "emitDeclarationOnly": false,
     "outDir": "./build"
   },
-  "include": ["src/**/*.tsx", "src/assets/**/*.svg", "src/@types/**/*.ts"],
+  "include": ["src/**/*.tsx", "src/**/*.ts"],
   "exclude": ["node_modules", "lib"]
 }
