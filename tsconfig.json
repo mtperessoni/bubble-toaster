@@ -20,6 +20,7 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "emitDeclarationOnly": false,
+    "strictPropertyInitialization": false,
     "outDir": "./build"
   },
   "include": ["src/**/*.tsx", "src/**/*.ts"],

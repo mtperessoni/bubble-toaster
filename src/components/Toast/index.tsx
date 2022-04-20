@@ -23,10 +23,7 @@ const TOAST_INFO: { [key: string]: { img: any; className: string; text: string }
     text: 'Sucesso',
   },
   error: {
-    img:
-      process.env.NODE_ENV === 'development'
-        ? errorIcon
-        : 'https://besafe-scripts.s3.amazonaws.com/Toast/media/error.f4c49f9a5c8aba2ee43a19348f4e68b3.svg',
+    img: errorIcon,
     className: 'toast__error',
     text: 'Erro',
   },
@@ -47,7 +44,7 @@ const TOAST_INFO: { [key: string]: { img: any; className: string; text: string }
     text: 'Alerta',
   },
 }
-const App: React.FC<IToast> = ({ type, duration, direction, message }) => {
+const App: React.FC<IToast> = ({ type, duration, direction, message, color }) => {
   const { img, className, text } = type !== undefined ? TOAST_INFO[type] : TOAST_INFO.success
   const [show, setShow] = useState<boolean>(false)
 
@@ -73,6 +70,7 @@ const App: React.FC<IToast> = ({ type, duration, direction, message }) => {
           toast__bottom_right: direction === 'bottom-right' || !direction,
           toast__bottom_left: direction === 'bottom-left',
         })}
+        style={{ background: color }}
         onClick={() => setShow(false)}
       >
         <div className='toast__image'>
